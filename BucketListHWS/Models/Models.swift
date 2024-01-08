@@ -7,10 +7,30 @@
 
 import MapKit
 
-fileprivate func urlString(latitude: String, longitude: String) -> String {
-    "https://en.wikipedia.org/w/api.php?ggscoord=\(latitude)%7C\(longitude)&action=query&prop=coordinates%7Cpageimages%7Cpageterms&colimit=50&piprop=thumbnail&pithumbsize=500&pilimit=50&wbptterms=description&generator=geosearch&ggsradius=10000&ggslimit=50&format=json"
+// MARK: API Models
+struct Result: Codable {
+    let query: Query
 }
 
+struct Query: Codable {
+    let pages: [Int: Page]
+}
+
+struct Page: Codable, Comparable {
+    let pageid: Int
+    let title: String
+    let terms: [String: [String]]?
+    
+    var description: String {
+        terms?["description"]?.first ?? ""
+    }
+    
+    static func < (lhs: Page, rhs: Page) -> Bool {
+        lhs.pageid < rhs.pageid
+    }
+}
+
+// MARK: App Model
 struct Location: Identifiable, Codable, Equatable {
     var id: UUID
     var name: String
@@ -31,8 +51,17 @@ struct Location: Identifiable, Codable, Equatable {
     }
     
     static func==(lhs: Location, rhs: Location) -> Bool {
-        lhs.longitude == rhs.longitude && lhs.latitude == rhs.longitude
+        lhs.id == rhs.id
     }
 }
 
 typealias Locations = [Location]
+
+// MARK: View Enum
+enum LoadingState<T: Codable> {
+    case loading
+    case failed(Error)
+    case loaded(T)
+}
+
+typealias Pages = [Page]

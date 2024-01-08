@@ -9,16 +9,13 @@ import MapKit
 import SwiftUI
 
 struct MainView: View {
-    @State private var locations: Locations = [
-        .buckinghamPalace,
-        .towerOfLondon
-    ]
+    @State private var viewModel = ViewModel()
     
     var body: some View {
         VStack {
             MapReader { proxy in
                 Map {
-                    ForEach(locations) { location in
+                    ForEach(viewModel.locations) { location in
                         Annotation(location.name, coordinate: location.coordinate) {
                             Image(systemName: "star.circle")
                                 .resizable()
@@ -26,23 +23,27 @@ struct MainView: View {
                                 .frame(width: 44, height: 44)
                                 .background(.white)
                                 .clipShape(.circle)
+                                .onLongPressGesture {
+                                    viewModel.selectedLocation = location
+                                }
                         }
                     }
                 }
                 .onTapGesture { position in
                     if let coordinate = proxy.convert(position, from: .local) {
-                        addNew(coordinate)
+                        viewModel.addLocation(coordinate.latitude, coordinate.longitude)
                     }
+                }
+            }
+            .sheet(item: $viewModel.selectedLocation) { place in
+                EditingView(location: place) { newLocation in
+                    viewModel.updateLocation(location: newLocation)
+                } onDelete: { loc in
+                    viewModel.removeLocation(location: loc)
                 }
             }
         }
         .navigationBarBackButtonHidden()
-    }
-    
-    func addNew(_ coordinate: CLLocationCoordinate2D) {
-        let location = Location("New Location", description: "", longitude: coordinate.longitude, latitude: coordinate.latitude)
-        
-        locations.append(location)
     }
 }
 
