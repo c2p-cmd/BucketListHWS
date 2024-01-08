@@ -11,6 +11,9 @@
 		007BCC232B4BD6E600023C5A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007BCC222B4BD6E600023C5A /* ContentView.swift */; };
 		007BCC252B4BD6E700023C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 007BCC242B4BD6E700023C5A /* Assets.xcassets */; };
 		007BCC282B4BD6E700023C5A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 007BCC272B4BD6E700023C5A /* Preview Assets.xcassets */; };
+		007BCC302B4BD6FA00023C5A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007BCC2F2B4BD6FA00023C5A /* Models.swift */; };
+		007BCC322B4BD98A00023C5A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007BCC312B4BD98A00023C5A /* MainView.swift */; };
+		007BCC342B4BDC3400023C5A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007BCC332B4BDC3400023C5A /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		007BCC222B4BD6E600023C5A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		007BCC242B4BD6E700023C5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		007BCC272B4BD6E700023C5A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		007BCC2F2B4BD6FA00023C5A /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		007BCC312B4BD98A00023C5A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		007BCC332B4BDC3400023C5A /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +58,8 @@
 			isa = PBXGroup;
 			children = (
 				007BCC202B4BD6E600023C5A /* BucketListHWSApp.swift */,
-				007BCC222B4BD6E600023C5A /* ContentView.swift */,
+				007BCC2E2B4BD6F100023C5A /* Models */,
+				007BCC352B4BFBBA00023C5A /* Views */,
 				007BCC242B4BD6E700023C5A /* Assets.xcassets */,
 				007BCC262B4BD6E700023C5A /* Preview Content */,
 			);
@@ -65,6 +72,24 @@
 				007BCC272B4BD6E700023C5A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		007BCC2E2B4BD6F100023C5A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				007BCC332B4BDC3400023C5A /* Extension.swift */,
+				007BCC2F2B4BD6FA00023C5A /* Models.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		007BCC352B4BFBBA00023C5A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				007BCC312B4BD98A00023C5A /* MainView.swift */,
+				007BCC222B4BD6E600023C5A /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +162,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				007BCC342B4BDC3400023C5A /* Extension.swift in Sources */,
+				007BCC302B4BD6FA00023C5A /* Models.swift in Sources */,
+				007BCC322B4BD98A00023C5A /* MainView.swift in Sources */,
 				007BCC232B4BD6E600023C5A /* ContentView.swift in Sources */,
 				007BCC212B4BD6E600023C5A /* BucketListHWSApp.swift in Sources */,
 			);
@@ -275,6 +303,7 @@
 				DEVELOPMENT_TEAM = VD4JPC3R94;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Needed for locking data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +333,7 @@
 				DEVELOPMENT_TEAM = VD4JPC3R94;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Needed for locking data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
