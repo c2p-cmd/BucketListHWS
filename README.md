@@ -4,3 +4,19 @@
 
 ## Introduction:
 - Made using Hacking With Swift's [tutorial](https://www.hackingwithswift.com/books/ios-swiftui/bucket-list-introduction)
+
+## Screenshots
+
+<table>
+  <tr>
+    <td>
+      <img src="https://raw.githubusercontent.com/c2p-cmd/BucketListHWS/main/Screenshots/ss1.png" alt="Screenshot 1" style="width: 100%; max-height: 600px; object-fit: contain;"/>
+    </td>
+    <td>
+      <img src="https://raw.githubusercontent.com/c2p-cmd/BucketListHWS/main/Screenshots/ss2.png" alt="Screenshot 2" style="width: 100%; max-height: 600px; object-fit: contain;"/>
+    </td>
+    <td>
+      <img src="https://raw.githubusercontent.com/c2p-cmd/BucketListHWS/main/Screenshots/ss3.png" alt="Screenshot 3" style="wid$
+    </td>
+  </tr>
+</table>
