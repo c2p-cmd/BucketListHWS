@@ -16,7 +16,7 @@
       <img src="https://raw.githubusercontent.com/c2p-cmd/BucketListHWS/main/Screenshots/ss2.png" alt="Screenshot 2" style="width: 100%; max-height: 600px; object-fit: contain;"/>
     </td>
     <td>
-      <img src="https://raw.githubusercontent.com/c2p-cmd/BucketListHWS/main/Screenshots/ss3.png" alt="Screenshot 3" style="wid$
+      <img src="https://raw.githubusercontent.com/c2p-cmd/BucketListHWS/main/Screenshots/ss3.png" alt="Screenshot 3" style="width: 100%; max-height: 600px; object-fit: contain;"/>
     </td>
   </tr>
 </table>
