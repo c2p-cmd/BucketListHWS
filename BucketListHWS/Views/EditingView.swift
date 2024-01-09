@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct EditingView: View {
-    var location: Location
     var onSaveAction: (Location) -> Void
     var onDeleteAction: (Location) -> Void
     
-    @State private var name = ""
-    @State private var desciption = ""
+    @State private var viewModel: ViewModel
     @State private var loadingState: LoadingState<Pages> = .loading
     @State private var showAlert = false
     
@@ -24,20 +22,18 @@ struct EditingView: View {
         onSave: @escaping (Location) -> Void,
         onDelete: @escaping (Location) -> Void
     ) {
-        self.location = location
         self.onSaveAction = onSave
         self.onDeleteAction = onDelete
         
-        _name = State(initialValue: location.name)
-        _desciption = State(initialValue: location.description)
+        _viewModel = State(initialValue: ViewModel(location: location))
     }
     
     var body: some View {
         NavigationStack {
             Form {
                 Section("Location Details") {
-                    TextField("Name:", text: $name)
-                    TextField("Description:", text: $desciption)
+                    TextField("Name", text: $viewModel.name)
+                    TextField("Description", text: $viewModel.description, axis: .vertical)
                 }
                 
                 Section {
@@ -77,10 +73,7 @@ struct EditingView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") {
-                        var newLocation = self.location
-                        newLocation.id = UUID()
-                        newLocation.name = name
-                        newLocation.description = desciption
+                        let newLocation = viewModel.newLocation()
                         
                         onSaveAction(newLocation)
                         dismiss()
@@ -93,10 +86,10 @@ struct EditingView: View {
                     }
                 }
             }
-            .alert("Are you sure you wanna delete \(location.name)?", isPresented: $showAlert) {
+            .alert("Are you sure you wanna delete \(viewModel.location.name)?", isPresented: $showAlert) {
                 Button("Confirm", role: .destructive) {
                     showAlert = false
-                    onDeleteAction(location)
+                    onDeleteAction(viewModel.location)
                     dismiss()
                 }
                 Button("Cancel", role: .cancel) {
@@ -107,10 +100,7 @@ struct EditingView: View {
             }
         }
         .task {
-            self.loadingState = await Locations.fecthNearByPlaces(
-                latitude: location.latitude,
-                longitude: location.longitude
-            )
+            self.loadingState = await viewModel.fetchNearbyPlaces()
         }
     }
 }

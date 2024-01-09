@@ -51,6 +51,7 @@ extension MainView {
             let newLocation = Location("New Location", description: "", longitude: longitude, latitude: latitude)
             locations.append(newLocation)
             save()
+            selectedLocation = newLocation
         }
         
         func updateLocation(location: Location) {
