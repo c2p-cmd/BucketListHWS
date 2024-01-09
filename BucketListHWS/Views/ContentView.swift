@@ -12,6 +12,7 @@ struct ContentView: View {
     @Environment(\.scenePhase) var scenePhase
     
     @State private var isUnlocked = false
+    @State private var showAlert = false
     
     var body: some View {
         NavigationStack {
@@ -33,6 +34,13 @@ struct ContentView: View {
                 .buttonStyle(.borderedProminent)
                 .padding(.bottom, 50)
             }
+        }
+        .alert("No Biometrics", isPresented: $showAlert) {
+            Button("Okay") {
+                showAlert = false
+            }
+        } message: {
+            Text("No biometrics supported")
         }
         .onChange(of: scenePhase) {
             switch scenePhase {
@@ -64,6 +72,7 @@ struct ContentView: View {
                 }
             }
         } else {
+            showAlert = true
             print("No biometrics!")
         }
     }

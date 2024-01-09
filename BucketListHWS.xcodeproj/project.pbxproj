@@ -17,6 +17,7 @@
 		007BCC372B4BFD2900023C5A /* EditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007BCC362B4BFD2900023C5A /* EditingView.swift */; };
 		007BCC3A2B4C0B1900023C5A /* MainView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007BCC392B4C0B1900023C5A /* MainView+ViewModel.swift */; };
 		007BCC3C2B4C11CE00023C5A /* FileManager+documentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007BCC3B2B4C11CE00023C5A /* FileManager+documentsDirectory.swift */; };
+		007BCC3E2B4D06D800023C5A /* EditingView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007BCC3D2B4D06D800023C5A /* EditingView+ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		007BCC362B4BFD2900023C5A /* EditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingView.swift; sourceTree = "<group>"; };
 		007BCC392B4C0B1900023C5A /* MainView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainView+ViewModel.swift"; sourceTree = "<group>"; };
 		007BCC3B2B4C11CE00023C5A /* FileManager+documentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+documentsDirectory.swift"; sourceTree = "<group>"; };
+		007BCC3D2B4D06D800023C5A /* EditingView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditingView+ViewModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				007BCC392B4C0B1900023C5A /* MainView+ViewModel.swift */,
+				007BCC3D2B4D06D800023C5A /* EditingView+ViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 			files = (
 				007BCC342B4BDC3400023C5A /* Extension.swift in Sources */,
 				007BCC302B4BD6FA00023C5A /* Models.swift in Sources */,
+				007BCC3E2B4D06D800023C5A /* EditingView+ViewModel.swift in Sources */,
 				007BCC3A2B4C0B1900023C5A /* MainView+ViewModel.swift in Sources */,
 				007BCC322B4BD98A00023C5A /* MainView.swift in Sources */,
 				007BCC3C2B4C11CE00023C5A /* FileManager+documentsDirectory.swift in Sources */,

@@ -10,10 +10,11 @@ import SwiftUI
 
 struct MainView: View {
     @State private var viewModel = ViewModel()
+    @AppStorage("standard_map") private var standardMap = false
     
     var body: some View {
         VStack {
-            MapReader { proxy in
+            MapReader { (proxy: MapProxy) in
                 Map {
                     ForEach(viewModel.locations) { location in
                         Annotation(location.name, coordinate: location.coordinate) {
@@ -29,6 +30,7 @@ struct MainView: View {
                         }
                     }
                 }
+                .mapStyle(standardMap ? .standard : .hybrid(elevation: .realistic))
                 .onTapGesture { position in
                     if let coordinate = proxy.convert(position, from: .local) {
                         viewModel.addLocation(coordinate.latitude, coordinate.longitude)
@@ -42,6 +44,18 @@ struct MainView: View {
                     viewModel.removeLocation(location: loc)
                 }
             }
+            .overlay(alignment: .topLeading) {
+                Button {
+                    standardMap.toggle()
+                } label: {
+                    Label("", systemImage: !standardMap ? "map.fill" : "view.3d")
+                        .labelStyle(.iconOnly)
+                }
+                .background(.thinMaterial)
+                .buttonStyle(.bordered)
+                .padding(.leading)
+                .padding(.top)
+            }
         }
         .navigationBarBackButtonHidden()
     }
@@ -50,5 +64,6 @@ struct MainView: View {
 #Preview {
     NavigationStack {
         MainView()
+            .preferredColorScheme(.dark)
     }
 }
