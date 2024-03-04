@@ -18,6 +18,7 @@ struct ContentView: View {
         NavigationStack {
             if isUnlocked {
                 MainView()
+                    .navigationBarBackButtonHidden()
             } else {
                 Image(systemName: "lock.fill")
                     .resizable()
